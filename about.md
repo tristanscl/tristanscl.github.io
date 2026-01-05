@@ -4,15 +4,8 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Hi, my name is Tristan Scuiller. I am an aerospace engineering graduate student at the Georgia Institute of Technology. Before that, I was in France where I completed my diplôme d'ingénieur at Ecole Nationale Supérieure d'Arts et Métiers, after two years of prépa at Stanislas, Paris. I also have a BS in Physics from Université Paris-Saclay I obtained alongside my main curriculum.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+This website is both my personal portfolio and my blog. I featured all the most relevant projects I did, and I post about topics in STEM that interest me.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+For any special request, please email me at [tristanscuillereng@gmail.com](mailto:tristanscuillereng@gmail.com)

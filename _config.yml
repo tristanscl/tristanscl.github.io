@@ -41,3 +41,14 @@ kramdown:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+header_pages:
+  - index.md 
+  - projects.md 
+  - blog.md 
+  - about.md
+
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:title/

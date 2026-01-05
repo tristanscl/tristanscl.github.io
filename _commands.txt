@@ -1,1 +1,7 @@
 bundle exec jekyll serve
+
+<figure style="margin: 2rem auto; width: 60%; text-align: center;">
+  <img src="/<filename.png>"
+       style="width:100%; display:block;">
+  <figcaption>blabla </figcaption>
+</figure>

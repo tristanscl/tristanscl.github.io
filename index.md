@@ -4,3 +4,11 @@
 
 layout: home
 ---
+
+test latex
+
+$$
+
+\frac{x}{\dot{x}}
+
+$$

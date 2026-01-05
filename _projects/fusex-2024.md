@@ -3,10 +3,9 @@ layout: page
 title: Experimental Rocketry Project - Design of a Recovery System
 description: One-year experimental rocketry project. Designed a 2-m-long rocket reaching altitudes of ~1.7 km.
 year: 2024
-permalink: /projects/fusex-2024/
 ---
 
-[Offical GitHub Repo](https://github.com/tristanscl/fleche-24-recovery-system)
+[🐈 Offical GitHub Repo](https://github.com/tristanscl/fleche-24-recovery-system)
 
 # Introduction
 
@@ -33,14 +32,15 @@ In principle, this is rather simple: you take the accelerometer data, integrate 
 Except the derivative is never actually zero. Indeed, we have some important mechanical noise in the signal due to turbulences of the air flow around the rocket. So the trajectory data is not of the form of the first figure, but more of the one of second figure.
 
 <figure style="margin: 2rem auto; width: 60%; text-align: center;">
-  <img src="/clean_data.png"
+  <img src="/images/fusex-2024/clean_data.png"
+       alt="alt text"
        style="width:100%; display:block;">
   <figcaption>Clean altimeter data (ideal).</figcaption>
 </figure>
 
 
 <figure style="margin: 2rem auto; width: 60%; text-align: center;">
-  <img src="/noisy_data.png"
+  <img src="/images/fusex-2024/noisy_data.png"
        alt="alt text"
        style="width:100%; display:block;">
   <figcaption>Noisy altimeter data (real).</figcaption>
@@ -62,27 +62,57 @@ So, how do we generate some data for these two sensors? The most straightforward
 
 ## Rocket Equation with Constant Gravity and Quadratic Friction
 
-[The Non-Ideal Rocket Equation](https://github.com/tristanscl/fleche-24-recovery-system/raw/main/doc/01_deriving_diff_eq.pdf)
+[The Non-Ideal Rocket Equation (PDF download)](https://github.com/tristanscl/fleche-24-recovery-system/raw/main/doc/01_deriving_diff_eq.pdf)
 
 The above document provides all the mathematical details of deriving the differential system used for simulation. I will just give the main ideas here:
 * We use the conservation of total momentum in a similar fashion than when we derive the Tsiolkowsky equation.
 * Except this time we add quadratic friction as well as a constant gravity field - this is justified by the moderate altitudes of the rocket (you don't feel zero gravity when you go hiking).
 
-Here is some sample simulated data. 
+We end up with the following equation for speed: 
+
+$$
+
+\dot{v} = Q(t) v_e -\frac{\rho S C_d}{2 m(t)} v^2 - m(t) g
+
+$$
+
+With $m(t) = m_0 - Q(t) t$ and:
+
+$$
+
+Q(t) = \begin{cases}
+Q_0 \quad \text{for } t < T_p := \frac{m_0}{Q_0}\\
+0 \quad \text{otherwise}
+\end{cases}
+
+$$
+
+With constants: 
+* $v_e$ the ejection speed of the propellant in m/s.
+* $\rho$ the density of air in $kg/m^3$.
+* $S$ the right section of the rocket in m².
+* $g$ the gravity field at sea level in m/s².
+* $Q_0$ the mass flow rate of the engine in kg/s.
+
+The state-space representation can be close by adding $\dot{v} = \dot{v}$.
+
+We can then perform numerical integration, here are the results (we plugged in typical values for the constants after looking at the technical documentation of the most usual components): 
 
 <figure style="margin: 2rem auto; width: 60%; text-align: center;">
-  <img src="/ref_altitude.png"
+  <img src="/images/fusex-2024/ref_altitude.png"
        alt="alt text"
        style="width:100%; display:block;">
   <figcaption>Simulated altitude of the rocket over time.</figcaption>
 </figure>
 
 <figure style="margin: 2rem auto; width: 60%; text-align: center;">
-  <img src="/ref_speed.png"
+  <img src="/images/fusex-2024/ref_speed.png"
        alt="alt text"
        style="width:100%; display:block;">
   <figcaption>Simulated speed of the rocket over time.</figcaption>
 </figure>
+
+This was also the first time we had an estimate of the maximum altitude of the rocket: around 1.7 km.
 
 ## Modelling Mechanical Noise and Sensor Measurement Uncertainty
 
@@ -91,14 +121,14 @@ To model mechanical noise and measurement uncertainty, we simply added some iid 
 So the data we will work with will look like this: 
 
 <figure style="margin: 2rem auto; width: 60%; text-align: center;">
-  <img src="/altimeter.png"
+  <img src="/images/fusex-2024/altimeter.png"
        alt="alt text"
        style="width:100%; display:block;">
   <figcaption>Generated altimeter data.</figcaption>
 </figure>
 
 <figure style="margin: 2rem auto; width: 60%; text-align: center;">
-  <img src="/accelerometer_apogee.png"
+  <img src="/images/fusex-2024/accelerometer_apogee.png"
        alt="alt text"
        style="width:100%; display:block;">
   <figcaption>Generated altimeter data (zoom around apogee).</figcaption>
@@ -127,7 +157,7 @@ where $\tau_c = \frac{1}{2 \pi f_c}$ is related to the cutoff frequency in Hz $f
 The good thing with that filter is that it is perfectly causal - it means that it can be used in real time since it does not require future data. However, there is a major flaw in this filter, that is shown in belows's figures. 
 
 <figure style="margin: 2rem auto; width: 60%; text-align: center;">
-  <img src="/altimeter_first_order.png"
+  <img src="/images/fusex-2024/altimeter_first_order.png"
        alt="alt text"
        style="width:100%; display:block;">
   <figcaption>Altimeter generated data (blue) and filtered with 1st order LPF (orange) - the LPF introduces phase shift.</figcaption>
@@ -144,7 +174,7 @@ The Kalman filter is not exactly a filter like the 1st order LPF or a 4th order 
 Implementation details can be found in the repo of the project, here are some plots of the effect of the Kalman filter on the noisy signal. Once again, we recall that this filter is causal.
 
 <figure style="margin: 2rem auto; width: 60%; text-align: center;">
-  <img src="/altimeter_kalman.png"
+  <img src="/images/fusex-2024/altimeter_kalman.png"
        alt="alt text"
        style="width:100%; display:block;">
   <figcaption>The Kalman filter eliminates the phase shift by introducing knowledge of the system's dynamics in our model.</figcaption>
@@ -158,7 +188,7 @@ The solution of the Kalman filter is very elegant, and is probably the one we wo
 In our case, we will use none of that fancy (yet very interesting) stuff, we will take a much simpler and naive approach: what if we could get a sort of 1st order Taylor expansion of the underlying signal? That is indeed the assumption we, as human, make when we look at anoisy signal: in order to get the next point we would just fit a straight line to the previous data points and take the intersection with that straight line for the estimate of the actual position (see figure below). 
 
 <figure style="margin: 2rem auto; width: 60%; text-align: center;">
-  <img src="/altimeter_least_square.png"
+  <img src="/images/fusex-2024/altimeter_least_square.png"
        alt="alt text"
        style="width:100%; display:block;">
   <figcaption>The approach using auto-regressive linear regression does not require any knowledge of the physics of the underlying system and also eliminates phase shift.</figcaption>

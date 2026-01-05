@@ -49,4 +49,6 @@ header_pages:
   - about.md
 
 collections:
-  - projects
+  projects:
+    output: true
+    permalink: /projects/:title/

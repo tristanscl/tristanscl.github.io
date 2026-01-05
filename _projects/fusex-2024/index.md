@@ -3,6 +3,7 @@ layout: page
 title: Experimental Rocketry Project - Design of a Recovery System
 description: One-year experimental rocketry project. Designed a 2-m-long rocket reaching altitudes of ~1.7 km.
 year: 2024
+permalink: /projects/fusex-2024/
 ---
 
 [Offical GitHub Repo](https://github.com/tristanscl/fleche-24-recovery-system)

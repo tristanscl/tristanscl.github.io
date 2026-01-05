@@ -51,4 +51,3 @@ header_pages:
 collections:
   projects:
     output: true
-    permalink: /:collection/:path/

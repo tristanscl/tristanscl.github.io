@@ -72,7 +72,7 @@ We end up with the following equation for speed:
 
 $$
 
-\dot{v} = Q(t) v_e -\frac{\rho S C_d}{2 m(t)} v^2 - m(t) g
+\dot{v} = Q(t) v_e -\frac{\rho S C_d}{2 m(t)} v^2 - g
 
 $$
 

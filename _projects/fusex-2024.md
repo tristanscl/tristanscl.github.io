@@ -72,7 +72,7 @@ We end up with the following equation for speed:
 
 $$
 
-\dot{v} = Q(t) v_e -\frac{\rho S C_d}{2 m(t)} v^2 - m(t) g
+\dot{v} = Q(t) v_e -\frac{\rho S C_d}{2 m(t)} v^2 - g
 
 $$
 
@@ -94,7 +94,7 @@ With constants:
 * $g$ the gravity field at sea level in m/s².
 * $Q_0$ the mass flow rate of the engine in kg/s.
 
-The state-space representation can be close by adding $\dot{v} = \dot{v}$.
+The state-space representation can be closed by adding $v = v$.
 
 We can then perform numerical integration, here are the results (we plugged in typical values for the constants after looking at the technical documentation of the most usual components): 
 

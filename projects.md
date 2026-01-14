@@ -14,7 +14,7 @@ permalink: /projects/
 
   <p>
     <a href="{{ project.link | default: project.url | relative_url }}">
-      View project
+      → View project
     </a>
   </p>
 {% endfor %}

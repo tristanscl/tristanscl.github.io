@@ -2,7 +2,7 @@
 layout: page
 title: TchAIkowsky - Classical Music Generation with Transformers
 description: Trained a ~100M parameters Transformer model to generate classical piano pieces.
-year: 2024
+year: 2025
 ---
 
 # Introduction

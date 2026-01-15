@@ -6,7 +6,7 @@ layout: page
 title: Projects
 ---
 
-<!-- <div>
+<div>
   {% assign sorted_projects = site.projects | sort: "year" | reverse %}
   {% for project in sorted_projects %}
     <div class="project-card">
@@ -22,4 +22,4 @@ title: Projects
 
     </div>
   {% endfor %}
-</div> -->
+</div>

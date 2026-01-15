@@ -6,8 +6,7 @@ layout: page
 title: Projects
 ---
 
-
-<div class="projects">
+<div>
   {% assign sorted_projects = site.projects | sort: "year" | reverse %}
   {% for project in sorted_projects %}
   <!-- put limit:3 or the number of projects you want to be displayed after sorted_projects if needed -->

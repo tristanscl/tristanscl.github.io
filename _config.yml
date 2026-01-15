@@ -43,8 +43,7 @@ kramdown:
 #   - vendor/ruby/
 
 header_pages:
-  - index.md 
-  - projects.md 
+  - index.md   # projects
   - blog.md 
   - about.md
 

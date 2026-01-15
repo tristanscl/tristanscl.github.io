@@ -3,30 +3,16 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: page
-title: Home
+title: Projects
 ---
 
-# Projects
-
-<style>
-.projects {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: 1fr; /* mobile default */
-}
-
-@media (min-width: 600px) {
-  .projects {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-</style>
 
 <div class="projects">
   {% assign sorted_projects = site.projects | sort: "year" | reverse %}
-  {% for project in sorted_projects limit:4 %}
+  {% for project in sorted_projects %}
+  <!-- put limit:3 or the number of projects you want to be displayed after sorted_projects if needed -->
     <div class="project-card">
-      <h4>{{ project.title }}</h4>
+      <h2>{{ project.title }}</h2>
 
       <p>
         <a href="{{ project.link | default: project.url | relative_url }}">

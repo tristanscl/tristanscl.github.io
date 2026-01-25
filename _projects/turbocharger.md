@@ -20,6 +20,6 @@ Tools used during that project were:
 
 We won't go into further details in that page, we feature the report & final presentation for that (in French): 
 
-📄 [Report (PDF)](xxx)
+📄 [Report (PDF)](https://github.com/tristanscl/tristanscl.github.io/raw/main/pdf/turbocharger/report_FR.pdf)
 
-🧑‍🏫 [Presentation (PDF)](xxx)
+🧑‍🏫 [Presentation (PDF)](https://github.com/tristanscl/tristanscl.github.io/raw/main/pdf/turbocharger/presentation_FR.pdf)

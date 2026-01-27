@@ -22,4 +22,4 @@ We provide the report as well as the repo for this project, unfortunately these 
 
 [🐈 Offical GitHub Repo](https://github.com/tristanscl/valeo_ai_challenge)
 
-[📄 Report (PDF)](xxx)
+[📄 Report (PDF)](https://github.com/tristanscl/tristanscl.github.io/raw/main/pdf/valeo/report_FR.pdf)
